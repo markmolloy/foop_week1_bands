@@ -19,6 +19,6 @@
         <TextBox x:Name="tbDetails" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="130" Margin="489,127,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="381" FontFamily="Roboto" FontSize="16" TextChanged="tbDetails_TextChanged" IsReadOnly="True"/>
         <ListBox x:Name="lbAlbums" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="174" Margin="572,278,0,0" VerticalAlignment="Top" Width="298" FontFamily="Roboto" FontSize="16"/>
         <Label x:Name="label2" Grid.ColumnSpan="2" Content="Albums" HorizontalAlignment="Left" Margin="489,278,0,0" VerticalAlignment="Top" FontFamily="Roboto" FontSize="20"/>
-        <Button x:Name="btnSave" Grid.ColumnSpan="2" Content="Save" HorizontalAlignment="Left" Margin="737,472,0,0" VerticalAlignment="Top" Width="133" Height="42" FontFamily="Roboto" FontSize="24"/>
+        <Button x:Name="btnSave" Grid.ColumnSpan="2" Content="Save" HorizontalAlignment="Left" Margin="737,472,0,0" VerticalAlignment="Top" Width="133" Height="42" FontFamily="Roboto" FontSize="24" Click="btnSave_Click"/>
     </Grid>
 </Window>

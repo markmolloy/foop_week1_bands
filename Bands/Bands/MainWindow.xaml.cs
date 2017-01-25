@@ -108,8 +108,6 @@ namespace Bands
         }
         public DateTime GetRandomDate(Random randomFactory)
         {
-
-            //Calculates a time range given two integers
             DateTime startDate = DateTime.Now.AddYears(-70);
             DateTime endDate = DateTime.Now;
             TimeSpan timeSpan = endDate - startDate;
@@ -158,6 +156,16 @@ namespace Bands
         private void tbDetails_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            //write data about selected band to file
+            Band b = lbBandList.SelectedItem as Band;
+            if (b != null)
+            {
+                b.WriteToFile();
+            }
         }
     }
 }

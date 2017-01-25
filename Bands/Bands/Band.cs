@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace Bands
 {
@@ -23,6 +24,27 @@ namespace Bands
         {
             Band b = (Band)obj;
             return this.Name.CompareTo(b.Name);
+        }
+
+        public void WriteToFile()
+        {
+            //string array to hold all info
+            int length = Members.Length + Albums.Length + 2;
+            string[] bandInfo = new string[length];
+            //fill it with band's details
+            bandInfo[0] = Name;
+            for (int i = 0; i < Members.Length; i++)
+            {
+                bandInfo[i + 1] = Members[i];
+            }
+            for (int i = 0; i < Albums.Length; i++)
+            {
+                bandInfo[i + 1 + Members.Length] = Albums[i].ToString();
+            }
+            //file name
+            string fileName = string.Format("Band-{0}.txt", Name);
+            //write
+            File.WriteAllLines(fileName, bandInfo);
         }
     }
 
