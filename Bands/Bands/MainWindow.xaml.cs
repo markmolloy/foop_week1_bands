@@ -47,7 +47,7 @@ namespace Bands
 
         private void comboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            lbBandList.ItemsSource] = "";
+            lbBandList.ItemsSource = "";
             string filter = comboBox.SelectedValue.ToString();
             Filter(filter);
         }
@@ -67,20 +67,25 @@ namespace Bands
 
         public void Filter(string genre)
         {
-
-            int counter = 0;
-
-            //Iterate through teams seeking match
-            for (int i = 0; i < bands.Length; i++)
+            if (genre == "All")
             {
-                string type = bands[i].GetType().Name;
-
-                //If match found add to filtered array
-                if (type.Equals(genre))
+                //if all genres selected
+                lbBandList.ItemsSource = bands;
+            }
+            else
+            {
+                //if specific genre selected
+                int counter = 0;
+                for (int i = 0; i < bands.Length; i++)
                 {
-                    filtered[counter] = bands[i];
-                    counter++;
+                    string type = bands[i].GetType().Name;
+                    if (type.Equals(genre))
+                    {
+                        filtered[counter] = bands[i];
+                        counter++;
+                    }
                 }
+                lbBandList.ItemsSource = filtered;
             }
         }
             
