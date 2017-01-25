@@ -96,11 +96,27 @@ namespace Bands
             Album[] albums = new Album[2];
             for (int i = 0; i < albums.Length; i++)
             {
-                Album a = new Album() { Name = (i == 0) ? al1 : al2, Year = 1900 + rnd.Next(50, 107), Sales = rnd.Next(1, 7) };
+                //basic
+                //Album a = new Album() { Name = (i == 0) ? al1 : al2, Year = 1900 + rnd.Next(50, 107), Sales = rnd.Next(1, 7) };
+                
+                //with datetime released date
+                Album a = new Album() { Name = (i == 0) ? al1 : al2, Relased = GetRandomDate(rnd), Sales = rnd.Next(1, 7) };
                 albums[i] = a;
             }
 
             return albums;            
+        }
+        public DateTime GetRandomDate(Random randomFactory)
+        {
+
+            //Calculates a time range given two integers
+            DateTime startDate = DateTime.Now.AddYears(-70);
+            DateTime endDate = DateTime.Now;
+            TimeSpan timeSpan = endDate - startDate;
+            TimeSpan newSpan = new TimeSpan(0, randomFactory.Next(0, (int)timeSpan.TotalMinutes), 0);
+            DateTime newDate = startDate + newSpan;
+            return newDate;
+
         }
 
         public Band[] CreateBands()
